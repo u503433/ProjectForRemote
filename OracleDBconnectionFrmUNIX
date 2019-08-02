@@ -1,0 +1,18 @@
+#!/bin/bash
+
+LogDirectory='/var/tmp/logs'
+DataDirectory='/var/tmp/data'
+
+DBUSER='scott'
+DBUSERPASSWORD='tiger'
+DB='oracle'
+
+sqlplus -s <<EOF  > ${LogDirectory}/query.log
+${DBUSER}/${DBUSERPASSWORD}@${MYDB}
+set linesize 32767
+set feedback off
+set heading off
+
+select * from dual;
+
+EOF
